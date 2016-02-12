@@ -1,0 +1,823 @@
+{
+  "create_folder": {
+    "_dump_version": 1, 
+    "label": "Create Folder ", 
+    "help_text": "Creates a folder in the chosen folder. If home is chosen will create a folder in the home directory.", 
+    "noun": "", 
+    "important": true, 
+    "hide": false, 
+    "url": "https://{{domain}}.sf-api.com/sf/v3/Items({{selectDir}})/Folder", 
+    "custom_fields_url": null, 
+    "sample_result_fields": [], 
+    "fields": {
+      "selectDir": {
+        "label": "Parent Folder", 
+        "required": true, 
+        "help_text": "Select a folder from the provided drop down for this folder to be created in. Keep clicking to go inside nested folders. Once in a nested folder choose top to return to the top folder and start the process again.", 
+        "placeholder": null, 
+        "default": "top", 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": "folders.Id.Name", 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "Name": {
+        "label": "Name", 
+        "required": true, 
+        "help_text": "Name of folder to be created", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "Description": {
+        "label": "Description ", 
+        "required": false, 
+        "help_text": "Description of folder to be created.", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }
+    }
+  }, 
+  "copy_item": {
+    "_dump_version": 1, 
+    "label": "Copy Item", 
+    "help_text": "Copies a chosen item to a selected folder", 
+    "noun": "", 
+    "important": false, 
+    "hide": false, 
+    "url": "https://{{domain}}.sf-api.com/sf/v3/Items({{item_to_copy}})/Copy?targetid={{selectDir}}", 
+    "custom_fields_url": null, 
+    "sample_result_fields": [], 
+    "fields": {
+      "selectDir": {
+        "label": "Folder ", 
+        "required": true, 
+        "help_text": "Folder you would like the item copied to", 
+        "placeholder": null, 
+        "default": "top", 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": "folders.Id.Name", 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "item_to_copy": {
+        "label": "Item", 
+        "required": true, 
+        "help_text": "Insert the ID field from the New File trigger", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": 1, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }
+    }
+  }, 
+  "upload_file": {
+    "_dump_version": 1, 
+    "label": "Upload File", 
+    "help_text": "Allows user to upload a file to the selected folder", 
+    "noun": "", 
+    "important": true, 
+    "hide": false, 
+    "url": "https://{{domain}}.sf-api.com/sf/v3/Items({{selectDir}})/Upload2", 
+    "custom_fields_url": null, 
+    "sample_result_fields": [], 
+    "fields": {
+      "selectDir": {
+        "label": "Folder", 
+        "required": true, 
+        "help_text": "Please choose the folder to upload file to. Keep clicking to go inside nested folders. Once in a nested folder choose top to return to the top folder and start the process again.", 
+        "placeholder": null, 
+        "default": "top", 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": "folders.Id.Name", 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "Filedata": {
+        "label": "File", 
+        "required": true, 
+        "help_text": "Please select a file object from the available Trigger fields.", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "File", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }
+    }
+  }, 
+  "create_note": {
+    "_dump_version": 1, 
+    "label": "Create Note", 
+    "help_text": "Creates a note in the chosen folder.", 
+    "noun": "", 
+    "important": false, 
+    "hide": true, 
+    "url": "https://{{domain}}.sf-api.com/sf/v3/Items({{selectDir}})/Note", 
+    "custom_fields_url": null, 
+    "sample_result_fields": [], 
+    "fields": {
+      "selectDir": {
+        "label": "Folder", 
+        "required": true, 
+        "help_text": "Choose the folder you would like to create a note in.", 
+        "placeholder": null, 
+        "default": "Top", 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": "folders.Id.Name", 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "Name": {
+        "label": "Note Name", 
+        "required": true, 
+        "help_text": "Please enter the desired name of your note or insert a variable from the trigger app", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "Description": {
+        "label": "Description", 
+        "required": true, 
+        "help_text": "Please enter a description for the created note. ", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }
+    }
+  }, 
+  "create_user": {
+    "_dump_version": 1, 
+    "label": "Create Client User", 
+    "help_text": "Creates a ShareFile user with the given information.", 
+    "noun": "", 
+    "important": true, 
+    "hide": false, 
+    "url": "https://{{domain}}.sf-api.com/sf/v3/Users", 
+    "custom_fields_url": null, 
+    "sample_result_fields": [
+      {
+        "type": "unicode", 
+        "key": "Company"
+      }, 
+      {
+        "type": "int", 
+        "key": "Contacted"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "DateCreated"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "Domain"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "Email"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "Emails"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "FirstName"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "FullName"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "FullNameShort"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "Id"
+      }, 
+      {
+        "type": "bool", 
+        "key": "IsConfirmed"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "LastName"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "ReferredBy"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "Roles"
+      }, 
+      {
+        "type": "int", 
+        "key": "TotalSharedFiles"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "Username"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "odata.metadata"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "odata.type"
+      }, 
+      {
+        "type": "unicode", 
+        "key": "url"
+      }
+    ], 
+    "fields": {
+      "Email": {
+        "label": "Email", 
+        "required": true, 
+        "help_text": null, 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "FirstName": {
+        "label": "First Name", 
+        "required": true, 
+        "help_text": null, 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": 1, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "LastName": {
+        "label": "Last Name", 
+        "required": true, 
+        "help_text": null, 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": 2, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "Company": {
+        "label": "Company", 
+        "required": false, 
+        "help_text": null, 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": 3, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "Password": {
+        "label": "Password", 
+        "required": true, 
+        "help_text": "Desired password for client. must contain at least 8 characters, containing at least 1 number, 1 upper case letter, and 1 lowercase letter.", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": 4, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "CanResetPassword": {
+        "label": "Can Reset Password", 
+        "required": true, 
+        "help_text": "Choose true to allow created user to reset their password choose false to require them to keep assigned password.", 
+        "placeholder": null, 
+        "default": "true", 
+        "choices": "true, false", 
+        "sort": 6, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "CanViewMySettings": {
+        "label": "Can View Settings", 
+        "required": true, 
+        "help_text": "Choose true to allow created user to view account settings, choose false to prevent this.", 
+        "placeholder": null, 
+        "default": "true", 
+        "choices": "true, false", 
+        "sort": 7, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }
+    }
+  }, 
+  "move_item": {
+    "_dump_version": 1, 
+    "label": "Move Item", 
+    "help_text": "Moves a chosen item to a selected folder", 
+    "noun": "", 
+    "important": false, 
+    "hide": false, 
+    "url": " https://{{domain}}.sf-api.com/sf/v3/Items({{item_to_move}})?overwrite=false", 
+    "custom_fields_url": null, 
+    "sample_result_fields": [], 
+    "fields": {
+      "item_to_move": {
+        "label": "Item", 
+        "required": true, 
+        "help_text": "Choose the item you would like to move. Insert the ID field from the New File trigger", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": 1, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "selectDir": {
+        "label": "Move to Folder", 
+        "required": true, 
+        "help_text": "Folder you would like the item moved to. Keep clicking to go inside nested folders. Once in a nested folder choose top to return to the top folder and start the process again.", 
+        "placeholder": null, 
+        "default": "top", 
+        "choices": null, 
+        "sort": 2, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": "folders.Id.Name", 
+        "searchfill": null, 
+        "send_in_json": false
+      }
+    }
+  }, 
+  "create_note_copy": {
+    "_dump_version": 1, 
+    "label": "Create Note Copy", 
+    "help_text": "Creates a note in the chosen folder.", 
+    "noun": "", 
+    "important": false, 
+    "hide": true, 
+    "url": "https://{{domain}}.sf-api.com/sf/v3/Items({{selectDir}})/Link", 
+    "custom_fields_url": null, 
+    "sample_result_fields": [], 
+    "fields": {
+      "selectDir": {
+        "label": "Folder", 
+        "required": true, 
+        "help_text": "Choose the folder you would like to create a note in.", 
+        "placeholder": null, 
+        "default": "Top", 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": "folders.Id.Name", 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "name": {
+        "label": "Link Name", 
+        "required": true, 
+        "help_text": "Please enter the desired name of your note or insert a variable from the trigger app", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "description": {
+        "label": "Description", 
+        "required": true, 
+        "help_text": "Please enter a description for the created note. ", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "link": {
+        "label": "Link", 
+        "required": true, 
+        "help_text": "Please insert the link from the trigger.", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }
+    }
+  }, 
+  "create_link1": {
+    "_dump_version": 1, 
+    "label": "Create Link 1", 
+    "help_text": "Creates a link in the chosen folder.", 
+    "noun": "", 
+    "important": false, 
+    "hide": true, 
+    "url": "https://{{domain}}.sf-api.com/sf/v3/Items({{selectDir}})/Link", 
+    "custom_fields_url": null, 
+    "sample_result_fields": [], 
+    "fields": {
+      "selectDir": {
+        "label": "Folder", 
+        "required": true, 
+        "help_text": "Choose the folder you would like to create a link in.", 
+        "placeholder": null, 
+        "default": "Top", 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": "folders.Id.Name", 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "name": {
+        "label": "Link Name", 
+        "required": true, 
+        "help_text": "Please enter the desired name of your link or insert a variable from the trigger app", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "description": {
+        "label": "Description", 
+        "required": true, 
+        "help_text": "Please enter a description for the created link. ", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "link": {
+        "label": "Link", 
+        "required": true, 
+        "help_text": "Please select a link field from the insert dropdown ", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }
+    }
+  }, 
+  "create_link": {
+    "_dump_version": 1, 
+    "label": "Create Link ", 
+    "help_text": "Creates a link in the chosen folder.", 
+    "noun": "", 
+    "important": false, 
+    "hide": true, 
+    "url": "https://{{domain}}.sf-api.com/sf/v3/Items({{selectDir}})/Link", 
+    "custom_fields_url": null, 
+    "sample_result_fields": [], 
+    "fields": {
+      "selectDir": {
+        "label": "Folder", 
+        "required": true, 
+        "help_text": "Choose the folder you would like to create a link in. Notice links can not be created in the Top folder.", 
+        "placeholder": null, 
+        "default": "Top", 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": "folders.Id.Name", 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "name": {
+        "label": "Link Name", 
+        "required": true, 
+        "help_text": "Please enter the desired name of your link or insert a variable from the trigger app", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "link": {
+        "label": "Link", 
+        "required": true, 
+        "help_text": "Please select the desired URL field from your Trigger fields.", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "description": {
+        "label": "Description", 
+        "required": false, 
+        "help_text": "Please enter a description for the created link. ", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }
+    }
+  }, 
+  "add_note": {
+    "_dump_version": 1, 
+    "label": "Add Note", 
+    "help_text": "Adds a note in the chosen folder.", 
+    "noun": "", 
+    "important": false, 
+    "hide": false, 
+    "url": "https://{{domain}}.sf-api.com/sf/v3/Items({{selectDir}})/Note", 
+    "custom_fields_url": null, 
+    "sample_result_fields": [], 
+    "fields": {
+      "selectDir": {
+        "label": "Folder", 
+        "required": true, 
+        "help_text": "Choose the folder you would like to create a note in.", 
+        "placeholder": null, 
+        "default": "Top", 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": "folders.Id.Name", 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "Name": {
+        "label": "Note Name", 
+        "required": true, 
+        "help_text": "Please enter the desired name of your note or insert a variable from the trigger app", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "Description": {
+        "label": "Description", 
+        "required": true, 
+        "help_text": "Please enter a description for the created note. ", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }
+    }
+  }, 
+  "add_link": {
+    "_dump_version": 1, 
+    "label": "Add Link", 
+    "help_text": "Adds a link in the chosen folder.", 
+    "noun": "", 
+    "important": false, 
+    "hide": true, 
+    "url": "https://{{domain}}.sf-api.com/sf/v3/Items({{selectDir}})/Link", 
+    "custom_fields_url": null, 
+    "sample_result_fields": [], 
+    "fields": {
+      "selectDir": {
+        "label": "Folder", 
+        "required": true, 
+        "help_text": "Choose the folder you would like to create a link in. Notice links can not be created in the Top folder.", 
+        "placeholder": null, 
+        "default": "Top", 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": "folders.Id.Name", 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "name": {
+        "label": "Link Name", 
+        "required": true, 
+        "help_text": "Please enter the desired name of your link or insert a variable from the trigger app", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "link": {
+        "label": "Link", 
+        "required": true, 
+        "help_text": "Please select the desired URL field from your Trigger fields.", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "description": {
+        "label": "Description", 
+        "required": false, 
+        "help_text": "Please enter a description for the created link. ", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }
+    }
+  }, 
+  "add_url": {
+    "_dump_version": 1, 
+    "label": "Add URL", 
+    "help_text": "Adds a URL in the chosen folder.", 
+    "noun": "", 
+    "important": false, 
+    "hide": false, 
+    "url": "https://{{domain}}.sf-api.com/sf/v3/Items({{selectDir}})/Link", 
+    "custom_fields_url": null, 
+    "sample_result_fields": [], 
+    "fields": {
+      "selectDir": {
+        "label": "Folder", 
+        "required": true, 
+        "help_text": "Choose the folder you would like to create a URL in. <strong>Note:</strong> URLs can not be created in the Top folder.", 
+        "placeholder": null, 
+        "default": "Top", 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": "folders.Id.Name", 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "name": {
+        "label": "URL Name", 
+        "required": true, 
+        "help_text": "Please enter the desired name of your URL or insert a variable from the trigger app", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "url": {
+        "label": "URL", 
+        "required": true, 
+        "help_text": "Please select the desired URL field from your Trigger fields.", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }, 
+      "description": {
+        "label": "Description", 
+        "required": false, 
+        "help_text": "Please enter a description for the created URL. ", 
+        "placeholder": null, 
+        "default": null, 
+        "choices": null, 
+        "sort": null, 
+        "type_of": "Unicode", 
+        "list": false, 
+        "prefill": null, 
+        "searchfill": null, 
+        "send_in_json": false
+      }
+    }
+  }
+}
