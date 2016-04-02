@@ -14,22 +14,7 @@
     "sample_result_fields": [], 
     "fields": {}
   }, 
-  "trigger_shares": {
-    "_dump_version": 1, 
-    "label": "New Share to To Download Link", 
-    "help_text": "Triggers when a new file is shared. Returns a download link for the shared item.", 
-    "noun": "Share", 
-    "important": false, 
-    "hide": true, 
-    "data_source": "Polling", 
-    "url": "https://{{domain}}.sf-api.com/sf/v3/Shares", 
-    "custom_fields_url": null, 
-    "hook_event": null, 
-    "hook_static_directions": "Log into your service and paste the below URL into the webhook setup field.", 
-    "sample_result_fields": [], 
-    "fields": {}
-  }, 
-  "folders": {
+  "worksheets": {
     "_dump_version": 1, 
     "label": "List Folders", 
     "help_text": "Generates a list of items available to account", 
@@ -44,7 +29,7 @@
     "sample_result_fields": [], 
     "fields": {}
   }, 
-  "items": {
+  "columns": {
     "_dump_version": 1, 
     "label": "List Item", 
     "help_text": "List items in the home folder", 
@@ -59,146 +44,19 @@
     "sample_result_fields": [], 
     "fields": {}
   }, 
-  "folder_for_item": {
+  "sheets": {
     "_dump_version": 1, 
-    "label": "Folder For Item ", 
-    "help_text": "Used to select a folder to choose items from. Necessary to prevent conflicts with list folder where folder and item are needed.", 
-    "noun": "", 
+    "label": "List Sheets", 
+    "help_text": "List spreadsheets for the connected account", 
+    "noun": "sheet", 
     "important": false, 
     "hide": true, 
     "data_source": "Polling", 
-    "url": "https://{{domain}}.sf-api.com/sf/v3/Items({{selectFolder}}/Children?includeDeleted=false", 
+    "url": "https://spreadsheets.google.com/feeds/spreadsheets/private/full", 
     "custom_fields_url": null, 
     "hook_event": null, 
-    "hook_static_directions": "Log into your service and paste the below URL into the webhook setup field.", 
+    "hook_static_directions": "s into your service and paste the below URL into the webhook setup field.", 
     "sample_result_fields": [], 
     "fields": {}
-  }, 
-  "new_share_Id": {
-    "_dump_version": 1, 
-    "label": "New Share (Return Item Id)", 
-    "help_text": "Triggers when a new item is shared. Returns item id.", 
-    "noun": "", 
-    "important": false, 
-    "hide": true, 
-    "data_source": "Polling", 
-    "url": "https://{{domain}}.sf-api.com/sf/v3/Shares", 
-    "custom_fields_url": null, 
-    "hook_event": null, 
-    "hook_static_directions": "Log into your service and paste the below URL into the webhook setup field.", 
-    "sample_result_fields": [], 
-    "fields": {}
-  }, 
-  "new_share_multi_download": {
-    "_dump_version": 1, 
-    "label": "New Share to Multiple Download Link", 
-    "help_text": "Triggers when a new share is added. Returns a download link of the folder containing the desired items.", 
-    "noun": "", 
-    "important": false, 
-    "hide": true, 
-    "data_source": "Polling", 
-    "url": "https://{{domain}}.sf-api.com/sf/v3/Shares", 
-    "custom_fields_url": null, 
-    "hook_event": null, 
-    "hook_static_directions": "Log into your service and paste the below URL into the webhook setup field.", 
-    "sample_result_fields": [], 
-    "fields": {
-      "selectDir": {
-        "label": "Folders", 
-        "required": true, 
-        "help_text": "Folder to download items from.", 
-        "placeholder": null, 
-        "default": "home", 
-        "choices": null, 
-        "sort": null, 
-        "type": "Unicode", 
-        "list": false, 
-        "prefill": "folders.Id.Name"
-      }, 
-      "type": {
-        "label": "Type", 
-        "required": false, 
-        "help_text": "Select a type if you would like to download all items in a folder of a selected type.", 
-        "placeholder": null, 
-        "default": null, 
-        "choices": "Pictures, Folders, Text Documents, Notes, PDF, Audio, Video", 
-        "sort": null, 
-        "type": "Unicode", 
-        "list": false, 
-        "prefill": null
-      }, 
-      "name_contains": {
-        "label": "Name Contains", 
-        "required": false, 
-        "help_text": "Enter text. Will sort files in folder to only return items containing the entered string in their name.", 
-        "placeholder": null, 
-        "default": null, 
-        "choices": null, 
-        "sort": null, 
-        "type": "Unicode", 
-        "list": false, 
-        "prefill": null
-      }
-    }
-  }, 
-  "zones": {
-    "_dump_version": 1, 
-    "label": "Zones", 
-    "help_text": "Dynamic dropdown for zones for use in Create a User Profile Action", 
-    "noun": "", 
-    "important": false, 
-    "hide": true, 
-    "data_source": "Polling", 
-    "url": "https://{{domain}}.sf-api.com/sf/v3/Zones", 
-    "custom_fields_url": null, 
-    "hook_event": null, 
-    "hook_static_directions": "Log into your service and paste the below URL into the webhook setup field.", 
-    "sample_result_fields": [], 
-    "fields": {}
-  }, 
-  "new_file": {
-    "_dump_version": 1, 
-    "label": "New File", 
-    "help_text": "Triggers when a new file is added to the chosen folder. ", 
-    "noun": "", 
-    "important": true, 
-    "hide": false, 
-    "data_source": "Polling", 
-    "url": "https://{{domain}}.sf-api.com/sf/v3/Items({{selectDir}})/Children?$orderby=CreationDate desc&includeDeleted=false", 
-    "custom_fields_url": null, 
-    "hook_event": null, 
-    "hook_static_directions": "Log into your service and paste the below URL into the webhook setup field.", 
-    "sample_result_fields": [
-      {
-        "type": "unicode", 
-        "key": "File"
-      }, 
-      {
-        "type": "unicode", 
-        "key": "Id"
-      }, 
-      {
-        "type": "unicode", 
-        "key": "Name"
-      }, 
-      {
-        "type": "unicode", 
-        "key": "Size"
-      }
-    ], 
-    "fields": {
-      "selectDir": {
-        "label": "Folder", 
-        "required": true, 
-        "help_text": "Check a specific folder for new files. Keep clicking to go inside nested folders. Please note: new files added to folders inside the folder you choose here will NOT trigger this Zap. Defaults to the top-level folder if none picked. Once in a nested folder choose top to return to the top folder and start the process again.", 
-        "placeholder": null, 
-        "default": "top", 
-        "choices": null, 
-        "sort": null, 
-        "type": "Unicode", 
-        "list": false, 
-        "prefill": "folders.Id.Name"
-      }
-    }
   }
 }

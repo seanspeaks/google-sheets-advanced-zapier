@@ -20,16 +20,5 @@
     "sort": null, 
     "type": "Unicode", 
     "input_format": null
-  }, 
-  "domain": {
-    "label": "Base URL", 
-    "required": true, 
-    "help_text": "The Base URL or domain used in your ShareFile web address. You can find this by logging in and looking at the browser URL. \n`https://_____________.sharefile.com`", 
-    "placeholder": null, 
-    "default": null, 
-    "choices": null, 
-    "sort": null, 
-    "type": "Unicode", 
-    "input_format": null
   }
 }

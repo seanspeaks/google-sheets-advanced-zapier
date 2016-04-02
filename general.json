@@ -1,9 +1,9 @@
 {
-  "title": "ShareFile Beta V 1.5 Cloned 2016-02-12", 
-  "description": "ShareFile is a secured large file sharing and storage system. The SaaS software allows businesses to create a custom-branded, password-protected area where large documents and files can be stored, synced and exchanged with clients in the cloud. ", 
-  "image_url": "https://zapier.cachefly.net/storage/developer/6dc8700b14605553cadeb70b22310fb6.jpeg", 
+  "title": "Google Sheets Advanced App", 
+  "description": "Sometimes, the available actions and triggers just aren't enough", 
+  "image_url": "httpshttp://img.talkandroid.com/uploads/2015/03/sheets-logo.png", 
   "test_trigger_key": "test", 
-  "auth_type": "OAuth V2 (w/refresh)", 
+  "auth_type": "OAuth V2", 
   "auth_mapping": {}, 
   "subscribe_url": "", 
   "unsubscribe_url": "", 
