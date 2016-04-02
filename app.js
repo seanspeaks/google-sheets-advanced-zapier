@@ -9,6 +9,7 @@
 *************************************************/
 
 var Zap = {
+/*
     add_url_pre_write: function(bundle) {
         
         var body = 
@@ -24,12 +25,12 @@ var Zap = {
     },
 
     
-
+*/
 /***********************************************
                    
                  Add Note 
 *************************************************/
-
+/*
 
     add_note_pre_write: function(bundle) {
           var body = 
@@ -44,11 +45,11 @@ var Zap = {
 
 
 
-
+*/
 /***********************************************
                    Move Item
 *************************************************/
-    
+  /*  
     move_item_pre_write: function(bundle) {
         
         bundle.request.method = "PATCH";
@@ -66,11 +67,11 @@ var Zap = {
         return bundle.request;
     },
     
-    
+    */
 /***********************************************
                    Create User
 *************************************************/
-
+/*
  
     create_user_pre_write: function(bundle) {
     //build post body
@@ -126,10 +127,11 @@ var Zap = {
          return bundle;
     },
    
-
+*/
 /***********************************************
   Folder for Item Dynamic Dropdown {selectFolder}
 *************************************************/
+/*
 //used when multiple dynamic dropdowns are needed for folders in the same action or trigger
 
     folder_for_item_post_poll: function(bundle) {
@@ -163,11 +165,11 @@ var Zap = {
         
     },
     
-    
+    */
 /***********************************************
                 List Items 
 *************************************************/
-//Used when you need to select items from the folder in selectDir 
+/*//Used when you need to select items from the folder in selectDir 
 //Edit returned items to retun item Name and Id
     items_post_poll: function(bundle) {
        var results = JSON.parse(bundle.response.content);
@@ -201,7 +203,7 @@ var Zap = {
 /***********************************************
                Upload File
 *************************************************/
-
+/*
  upload_file_pre_write: function(bundle) {
  
      var folder = bundle.action_fields_full.selectDir;
@@ -253,6 +255,7 @@ var Zap = {
 /***********************************************
                Create Folder
 *************************************************/
+/*
     create_folder_pre_write: function(bundle) {
     
     //Set data to build object that is formated to correct post
@@ -274,7 +277,7 @@ var Zap = {
 /***********************************************
   Folder Dynaimic Drropdown Trigger {{selectDir}}
 *************************************************/
-
+/*
     folders_post_poll: function(bundle) {
        var results = JSON.parse(bundle.response.content);
        var myArray=[];
@@ -310,7 +313,7 @@ var Zap = {
 /***********************************************
          Trigger Shares (not visable)
 *************************************************/
-
+/*
 
   // This returns a download content link for downloading file to other service. In this case it returns when a new share is made. Can be resued to modify any trigger we want to download items from
     trigger_shares_post_poll: function(bundle) {
@@ -385,7 +388,7 @@ var Zap = {
  /***********************************************
                     New File
 *************************************************/
-
+/*
 //function to be called in new file with z.dehydrate
   get_download_link: function(bundle){
         var request = {
@@ -442,6 +445,7 @@ var Zap = {
 /***********************************************
       New Share Teturn Id (not in use)
 *************************************************/
+/*
     // Return item id of most recent share as insted of share Id 
     new_share_Id_post_poll: function(bundle) {
     
@@ -489,6 +493,7 @@ var Zap = {
 /***********************************************
                Test Poll
 *************************************************/
+/*
     test_post_poll: function(bundle) {
         var stuff = bundle.response.content;
         if (stuff) {
@@ -498,5 +503,5 @@ var Zap = {
             return [];
         }
     }
-    
+    */
 };
